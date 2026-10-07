@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "191740129354",
+    "project_id": "taillebook",
+    "storage_bucket": "taillebook.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191740129354:android:979bda557aaf1ca07eb6b3",
+        "android_client_info": {
+          "package_name": "com.taillebook.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8RD0N1E2sQva9e29IwRVDM90jspQ2B1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
