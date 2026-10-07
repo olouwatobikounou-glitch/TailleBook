@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.taillebook'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.taillebook"
+        minSdk 24
+        targetSdk 34
+        versionCode 6
+        versionName "6.0-Mondial"
+
+        // Pour que tes 5 fichiers marchent partout
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.8'
+    }
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    // BASE ANDROID
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.activity:activity-compose:1.8.2'
+    implementation 'androidx.compose.ui:ui:1.5.4'
+    implementation 'androidx.compose.ui:ui-tooling-preview:1.5.4'
+    implementation 'androidx.compose.material3:material3:1.1.2'
+    implementation 'androidx.compose.material:material-icons-extended:1.5.4'
+
+    // FIREBASE - Pour Cache.kt + Pubslook.kt + SecurityCenter.kt
+    implementation platform('com.google.firebase:firebase-bom:32.7.0')
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+
+    // TRADUCTION MONDIALE - Pour TranslationCenter.kt (20 langues)
+    implementation 'com.google.mlkit:translate:17.0.3'
+
+    // TEXTE TO SPEECH - Pour bouton 🔊 Écouter dans VideoPubslookTraduite
+    implementation 'androidx.compose.ui:ui-text-google-fonts:1.5.4'
+
+    // MULTIDEX - Pour app lourde
+    implementation 'androidx.multidex:multidex:2.0.1'
+}
